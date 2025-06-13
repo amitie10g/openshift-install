@@ -1,19 +1,25 @@
-FROM quay.io/coreos/coreos-installer
-ARG  OKD_VERSION=4.19.0-okd-scos.3
-ARG  ARCH=x86_64
+ARG VERSION=4.19.0-okd-scos.3
+ARG ARCH=x86_64
+
+FROM quay.io/coreos/coreos-installer AS coreos
+ARG VERSION
 
 WORKDIR /tmp/openshift
-RUN curl -LO https://github.com/okd-project/okd/releases/download/${OKD_VERSION}/openshift-client-linux-${OKD_VERSION}.tar.gz && \
-    curl -LO https://github.com/okd-project/okd/releases/download/${OKD_VERSION}/openshift-install-linux-${OKD_VERSION}.tar.gz && \
+RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/openshift-client-linux-${VERSION}.tar.gz && \
+    curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/openshift-install-linux-${VERSION}.tar.gz && \
     tar -xvf openshift-client-linux-${VERSION}.tar.gz && \
-    tar -xvf openshift-install-linux-${VERSION}.tar.gz && \
-    mv oc kubectl openshift-install /usr/local/bin && \
-    rm -fr /tmp/openshift
+    tar -xvf openshift-install-linux-${VERSION}.tar.gz
+
+FROM quay.io/fedora/fedora:42
+ARG VERSION
+ARG ARCH
 
 RUN dnf install -y gpg kpartx lsblk udevadm && \
     dnf clean all
 
-ENV OKD_VERSION=${OKD_VERSION}
-ENV ARCH=${ARCH}
+COPY --from=coreos /tmp/openshift/oc /tmp/openshift/kubectl /tmp/openshift/openshift-install /usr/bin/coreos-installer /usr/local/bin/
 
 WORKDIR /root/okd
+
+ENV VERSION=$VERSION
+ENV ARCH=$ARCH
