@@ -7,8 +7,7 @@ RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/ope
     tar -xvf openshift-install-linux-${VERSION}.tar.gz && \
     mv oc kubectl openshift-install /usr/local/bin && \
     rm -fr /tmp/openshift
-RUN dnf install -y /usr/bin/gpg /usr/bin/kpartx /usr/bin/lsblk \
-    /usr/bin/udevadm && \
+RUN dnf install -y gpg kpartx lsblk udevadm && \
     dnf clean all
 COPY --from=quay.io/coreos/coreos-installer /usr/local/bin/coreos-installer /usr/local/bin/coreos-installer
 WORKDIR /root
