@@ -14,6 +14,6 @@ RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/ope
 RUN dnf install -y gpg kpartx lsblk udevadm && \
     dnf clean all
 
-COPY --from=coreos /usr/local/bin/coreos-installer /usr/local/bin/coreos-installer
+COPY --from=coreos /usr/bin/coreos-installer /usr/local/bin/coreos-installer
 
 WORKDIR /root
