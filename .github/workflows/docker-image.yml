@@ -55,7 +55,6 @@ jobs:
       id: build
       with:
         push: true
-        context: image
         build-args: |
           VERSION=${{ env.VERSION }}
         platforms: linux/amd64,linux/arm64
