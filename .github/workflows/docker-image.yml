@@ -42,6 +42,7 @@ jobs:
         curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/openshift-install-linux-${VERSION}.tar.gz
         tar -xvf openshift-client-linux-${VERSION}.tar.gz
         tar -xvf openshift-install-linux-${VERSION}.tar.gz
+        ls
 
     - name: Set tags metadata
       uses: docker/metadata-action@v5
