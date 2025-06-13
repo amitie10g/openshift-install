@@ -50,7 +50,6 @@ jobs:
         push: true
         build-args: |
           VERSION=${{ env.VERSION }}
-          PLATFORM=${{ env.RUNNER_ARCH }}
         platforms: linux/amd64,linux/arm64
         cache-to: type=inline
         tags: ${{ steps.meta.outputs.tags }}
