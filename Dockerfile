@@ -1,4 +1,6 @@
-FROM quay.io/fedora/fedora:42 AS base
+FROM quay.io/coreos/coreos-installer AS coreos
+
+FROM quay.io/fedora/fedora:42
 ARG VERSION=4.19.0-okd-scos.3
 WORKDIR /tmp/openshift
 
@@ -12,9 +14,6 @@ RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/ope
 RUN dnf install -y gpg kpartx lsblk udevadm && \
     dnf clean all
 
-FROM quay.io/coreos/coreos-installer AS coreos
-
-FROM base
 COPY --from=coreos /usr/local/bin/coreos-installer /usr/local/bin/coreos-installer
 
 WORKDIR /root
