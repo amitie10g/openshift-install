@@ -16,4 +16,4 @@ RUN dnf install -y gpg kpartx lsblk udevadm && \
 
 COPY --from=coreos /usr/bin/coreos-installer /usr/local/bin/coreos-installer
 
-WORKDIR /root
+WORKDIR /root/okd
