@@ -9,3 +9,5 @@ RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/ope
     tar -xvf openshift-client-linux${PLATFORM}-${VERSION}.tar.gz && \
     mv oc kubectl openshift-install /usr/local/bin && \
     rm -fr /tmp/openshift
+
+WORKDIR /root
