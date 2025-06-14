@@ -1,2 +1,8 @@
-# openshift-client
-OpenShift client for provisioning Red Hat OpenShif and OKD cluster in Docker image
+# openshift-installer
+Tools for provisioning OpenShift and OKD, dockerized
+
+## Tools included
+* openshift-install
+* kubectl
+* oc
+* coreos-installer (for handling ISO images)
