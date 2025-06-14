@@ -8,7 +8,9 @@ WORKDIR /tmp/openshift
 RUN curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/openshift-client-linux-${VERSION}.tar.gz && \
     curl -LO https://github.com/okd-project/okd/releases/download/${VERSION}/openshift-install-linux-${VERSION}.tar.gz && \
     tar -xvf openshift-client-linux-${VERSION}.tar.gz && \
-    tar -xvf openshift-install-linux-${VERSION}.tar.gz
+    tar -xvf openshift-install-linux-${VERSION}.tar.gz && \
+    rm kubectl && \
+    ln -s oc kubectl
 
 FROM quay.io/fedora/fedora:42
 ARG VERSION
