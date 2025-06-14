@@ -1,4 +1,4 @@
-# openshift-installer
+# openshift-install
 Tools for provisioning OpenShift and OKD, dockerized
 
 ## Tools included
