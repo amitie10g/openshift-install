@@ -5,4 +5,8 @@ Tools for provisioning OpenShift and OKD, dockerized
 * openshift-install
 * kubectl
 * oc
+* butane (for handling YAML to JSON ignition)
 * coreos-installer (for handling ISO images)
+
+## Usage
+    docker run -it -v $(pwd):/root/openshift openshift-install
