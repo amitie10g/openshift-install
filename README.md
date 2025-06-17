@@ -9,4 +9,4 @@ Tools for provisioning OpenShift and OKD, dockerized
 * coreos-installer (for handling ISO images)
 
 ## Usage
-    docker run -it -v $(pwd):/root/openshift openshift-install
+    docker run -it -v $(pwd):/root/openshift ghcr.io/amitie10g/openshift-install
