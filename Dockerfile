@@ -19,7 +19,7 @@ RUN dnf install -y gpg kpartx lsblk udevadm butane && \
 
 COPY --from=coreos /tmp/openshift/oc /tmp/openshift/kubectl /tmp/openshift/openshift-install /usr/bin/coreos-installer /usr/local/bin/
 
-WORKDIR /root/okd
+WORKDIR /root/openshift
 
 ENV VERSION=$VERSION
 ENV ARCH=$ARCH
