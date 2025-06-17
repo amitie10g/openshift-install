@@ -1,6 +1,4 @@
 ARG VERSION=4.19.0-okd-scos.3
-ARG ARCH=x86_64
-
 FROM quay.io/coreos/coreos-installer AS coreos
 ARG VERSION
 
@@ -16,7 +14,7 @@ FROM quay.io/fedora/fedora:42
 ARG VERSION
 ARG ARCH
 
-RUN dnf install -y gpg kpartx lsblk udevadm && \
+RUN dnf install -y gpg kpartx lsblk udevadm butane && \
     dnf clean all
 
 COPY --from=coreos /tmp/openshift/oc /tmp/openshift/kubectl /tmp/openshift/openshift-install /usr/bin/coreos-installer /usr/local/bin/
