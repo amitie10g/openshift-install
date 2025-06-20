@@ -1,4 +1,4 @@
-ARG VERSION=4.19.0-okd-scos.3
+ARG VERSION=4.18.0-okd-scos.10
 FROM quay.io/coreos/coreos-installer AS coreos
 ARG VERSION
 
