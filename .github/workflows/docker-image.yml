@@ -4,9 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       openshift_version:
-        description: 'Enter anything.'
+        description: 'Enter the version.'
         required: true
         default: '4.18.0-okd-scos.10'
+      latest_release:
+        description: 'Set this buuild as latest release'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 permissions:
   actions:  write
@@ -48,8 +56,8 @@ jobs:
         images: |
           ghcr.io/${{ github.repository_owner }}/openshift-install
         tags: |
-          latest
           ${{ env.VERSION }}
+          ${{ latest_release == 'true' && 'latest' || '' }}
     
     - name: Build And Push Docker Image
       uses: docker/build-push-action@v5
