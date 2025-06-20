@@ -1,4 +1,5 @@
 ARG VERSION=4.18.0-okd-scos.10
+ARG ARCH=x86_64
 FROM quay.io/coreos/coreos-installer AS coreos
 ARG VERSION
 
