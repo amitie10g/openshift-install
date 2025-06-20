@@ -9,7 +9,7 @@ permissions:
   packages: write
 
 env:
-  VERSION: 4.19.0-okd-scos.3
+  VERSION: 4.18.0-okd-scos.10
 
 jobs:
   Build:
