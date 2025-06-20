@@ -57,7 +57,7 @@ jobs:
           ghcr.io/${{ github.repository_owner }}/openshift-install
         tags: |
           ${{ env.VERSION }}
-          ${{ latest_release == 'true' && 'latest' || '' }}
+          ${{ inputs.latest_release == 'true' && 'latest' || '' }}
     
     - name: Build And Push Docker Image
       uses: docker/build-push-action@v5
