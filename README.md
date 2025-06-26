@@ -42,8 +42,31 @@ coreos-installer iso customize \
 ```
 * You will get ``fcos-live-custom.iso``. Use it for provisioning your SNO cluster.
 
-## Write /etc/hosts with the following, appending to the 127.0.0.1 definition the following:
-    api.<domain> api-int.<domain> oauth-openshift.apps.<domain> console-openshift-console.apps.<domain> downloads-openshift-console.apps.<domain> canary-openshift-ingress-canary.apps.<domain> alertmanager-main-openshift-monitoring.apps.<domain> prometheus-k8s-openshift-monitoring.apps.<domain> prometheus-k8s-federate-openshift-monitoring.apps.<domain> thanos-querier-openshift-monitoring.apps.<domain>
+## Update /etc/hosts
+Uppon first reboot (early!!!), append the following to the /etc/hosts file:
+```
+127.0.0.1 api.<domain>
+127.0.0.1 api-int.<domain>
+127.0.0.1 oauth-openshift.apps.<domain>
+127.0.0.1 console-openshift-console.apps.<domain>
+127.0.0.1 downloads-openshift-console.apps.<domain>
+127.0.0.1 canary-openshift-ingress-canary.apps.<domain>
+127.0.0.1 alertmanager-main-openshift-monitoring.apps.<domain>
+127.0.0.1 prometheus-k8s-openshift-monitoring.apps.<domain>
+127.0.0.1 prometheus-k8s-federate-openshift-monitoring.apps.<domain>
+127.0.0.1 thanos-querier-openshift-monitoring.apps.<domain>
+
+<node_ip> api.<domain>
+<node_ip> api-int.<domain>
+<node_ip> oauth-openshift.apps.<domain>
+<node_ip> console-openshift-console.apps.<domain>
+<node_ip> downloads-openshift-console.apps.<domain>
+<node_ip> canary-openshift-ingress-canary.apps.<domain>
+<node_ip> alertmanager-main-openshift-monitoring.apps.<domain>
+<node_ip> prometheus-k8s-openshift-monitoring.apps.<domain>
+<node_ip> prometheus-k8s-federate-openshift-monitoring.apps.<domain>
+<node_ip> thanos-querier-openshift-monitoring.apps.<domain>
+```
 
 ## Tested with:
 * OKD 4.20: fail
