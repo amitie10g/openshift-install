@@ -41,3 +41,9 @@ coreos-installer iso customize \
     fcos-live-$VERSION.iso
 ```
 * You will get ``fcos-live-custom.iso``. Use it for provisioning your SNO cluster.
+
+## Tested with:
+* OKD 4.20: fail
+* OKD 4.19: fail
+* OKD 4.18: fail
+* OKD 4.15: testing
