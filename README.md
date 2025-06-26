@@ -69,7 +69,8 @@ Uppon first reboot (early!!!), append the following to the /etc/hosts file:
 ```
 
 ## Tested with:
-* OKD 4.20: fail
-* OKD 4.19: fail
-* OKD 4.18: fail
-* OKD 4.15: testing
+* **OKD 4.20**: fail
+* **OKD 4.19**: fail
+* **OKD 4.1**8: fail
+* **OKD 4.15**: testing
+  *** Upgrade to 4.20**: pending 
