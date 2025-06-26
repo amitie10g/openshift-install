@@ -42,6 +42,9 @@ coreos-installer iso customize \
 ```
 * You will get ``fcos-live-custom.iso``. Use it for provisioning your SNO cluster.
 
+## Write /etc/hosts with the following, appending to the 127.0.0.1 definition the following:
+    api.<domain> api-int.<domain> oauth-openshift.apps.<domain> console-openshift-console.apps.<domain> downloads-openshift-console.apps.<domain> canary-openshift-ingress-canary.apps.<domain> alertmanager-main-openshift-monitoring.apps.<domain> prometheus-k8s-openshift-monitoring.apps.<domain> prometheus-k8s-federate-openshift-monitoring.apps.<domain> thanos-querier-openshift-monitoring.apps.<domain>
+
 ## Tested with:
 * OKD 4.20: fail
 * OKD 4.19: fail
