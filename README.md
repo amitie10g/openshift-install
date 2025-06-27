@@ -27,6 +27,7 @@ storage:
   files:
     - path: /etc/NetworkManager/system-connections/static-<interface>.nmconnection
       mode: 0600
+      overwrite: true,
       contents:
         inline: |
           [connection]
@@ -43,6 +44,7 @@ storage:
           method=disabled
     - path: /etc/hostname
       mode: 0644
+      overwrite: true,
       contents:
         inline: <hostname>.<domain>
 ```
@@ -64,7 +66,8 @@ storage:
                     "source": "data:;base64,<base64-encoded //etc/NetworkManager/system-connections/static-ens192.nmconnection"
                 },
                 "mode": 384,
-                "path": "/etc/NetworkManager/system-connections/static-<interface>.nmconnection"
+                "path": "/etc/NetworkManager/system-connections/static-<interface>.nmconnection,
+                "overwrite": true
             },
             {
                 "contents": {
@@ -72,7 +75,8 @@ storage:
                     "source": "data:,<hostname>.<domain>"
                 },
                 "mode": 420,
-                "path": "/etc/hostname"
+                "path": "/etc/hostname",
+                "overwrite": true
             }
         ]
     }
